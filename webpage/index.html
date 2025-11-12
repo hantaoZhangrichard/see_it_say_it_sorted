@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Flowchart Editor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Flowchart Editor</h1>
+    </header>
+    <div class="main">
+      <!-- Left Panel: Drawing Canvas -->
+      <div class="panel">
+        <h3 class="panel-title">Drawing Area</h3>
+
+        <div class="toolbar" id="tool-bar">
+          <button class="btn active" data-tool="rectangle">Rectangle</button>
+          <button class="btn" data-tool="ellipse">Ellipse</button>
+          <button class="btn" data-tool="triangle">Triangle</button>
+          <button class="btn" data-tool="arrow">Arrow</button>
+          <button class="btn" data-tool="line">Line</button>
+          <button class="btn" data-tool="eraser">Eraser</button>
+          <button class="btn" data-tool="text">Text</button>
+          <button class="btn" data-tool="cursor">Cursor</button>
+
+          <div style="flex:1"></div>
+
+          <div class="color-picker">
+            <label for="drawing-color">Color:</label>
+            <input id="drawing-color" type="color" value="#2c3e50">
+          </div>
+          <div class="color-picker">
+            <label for="line-width">Width:</label>
+            <input id="line-width" type="range" min="1" max="20" value="3">
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="drawing-canvas" width="600" height="450" style="width:600px; height:450px;"></canvas>
+        </div>
+      </div>
+
+      <!-- Middle Panel: SVG Preview & JSON -->
+      <div class="panel">
+        <h3 class="panel-title">SVG Preview</h3>
+        <div class="svg-preview" id="svg-preview">
+          <p style="text-align:center;margin-top:60px">SVG preview will appear here</p>
+        </div>
+
+        <h3 class="panel-title" style="margin-top: 12px;">JSON Dictionary Format</h3>
+        <textarea id="json-code" class="json-code" placeholder="JSON dictionary will appear here..."></textarea>
+        <div id="json-status" class="json-status"></div>
+
+        <div class="actions">
+          <button class="btn generate" id="generate-btn">Generate JSON</button>
+          <button class="btn download" id="download-btn">Download SVG</button>
+          <button class="btn clear" id="clear-btn">Clear Canvas</button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Chatbot -->
+      <div class="panel chatbot-panel" id="chatbot-panel">
+        <h3 class="panel-title" style="margin:0;">Chatbot</h3>
+        <div id="chatbot-content">
+          <div id="chatbot-box" class="chatbot-box">Chatbot ready.</div>
+
+          <input type="file" id="chatbot-image-input" accept="image/*" style="display:none;" />
+          <div class="chatbot-input-wrapper">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Type your message..." />
+            <img 
+              src="https://cdn-icons-png.flaticon.com/512/685/685655.png"
+              class="chatbot-upload-icon"
+              onclick="document.getElementById('chatbot-image-input').click();"
+            />
+          </div>
+          <button class="btn" onclick="sendChat()" style="width:100%;">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>Flowchart Editor &copy; 2025</footer>
+  </div>
+
+  <!-- JavaScript files -->
+  <script src="shapes.js"></script>
+  <script src="json-converter.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
