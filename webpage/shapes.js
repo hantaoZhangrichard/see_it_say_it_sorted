@@ -1,17 +1,19 @@
 // ============================================================================
 // Shape Utility Functions
 // ============================================================================
-function drawArrowHead(ctx, x1, y1, x2, y2) {
+function drawArrowHead(ctx, x1, y1, x2, y2, size = 10) {
   const angle = Math.atan2(y2 - y1, x2 - x1);
-  const size = 10;
+  ctx.save();
   ctx.beginPath();
   ctx.moveTo(x2, y2);
   ctx.lineTo(x2 - size * Math.cos(angle - Math.PI / 6),
              y2 - size * Math.sin(angle - Math.PI / 6));
-  ctx.moveTo(x2, y2);
   ctx.lineTo(x2 - size * Math.cos(angle + Math.PI / 6),
              y2 - size * Math.sin(angle + Math.PI / 6));
-  ctx.stroke();
+  ctx.closePath();
+  ctx.fillStyle = ctx.strokeStyle;
+  ctx.fill();
+  ctx.restore();
 }
 
 /**
@@ -320,24 +322,39 @@ function drawShape(ctx, s) {
     ctx.lineWidth = s.strokeWidth || 3;
     ctx.beginPath();
 
+    const arrowHeadSize = s.arrowheadSize || 10;
+
     if (s.points && s.points.length > 1) {
-      ctx.moveTo(s.points[0].x, s.points[0].y);
-      for (let i = 1; i < s.points.length; i++) {
-        ctx.lineTo(s.points[i].x, s.points[i].y);
+      // Shorten the last segment by arrowHeadSize
+      const pts = s.points.slice();
+      const L = pts.length;
+      const p1 = pts[L-2];
+      const p2 = pts[L-1];
+      const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+      const newEnd = {
+        x: p2.x - arrowHeadSize * Math.cos(angle),
+        y: p2.y - arrowHeadSize * Math.sin(angle)
+      };
+      pts[L-1] = newEnd;
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) {
+        ctx.lineTo(pts[i].x, pts[i].y);
       }
       ctx.stroke();
-
-      const L = s.points.length;
       drawArrowHead(ctx,
-        s.points[L-2].x, s.points[L-2].y,
-        s.points[L-1].x, s.points[L-1].y
+        p1.x, p1.y,
+        p2.x, p2.y,
+        arrowHeadSize
       );
     } else {
+      // Shorten the line by arrowHeadSize
+      const angle = Math.atan2(s.y2 - s.y1, s.x2 - s.x1);
+      const newX2 = s.x2 - 0.85 * arrowHeadSize * Math.cos(angle);
+      const newY2 = s.y2 - 0.85 * arrowHeadSize * Math.sin(angle);
       ctx.moveTo(s.x1, s.y1);
-      ctx.lineTo(s.x2, s.y2);
+      ctx.lineTo(newX2, newY2);
       ctx.stroke();
-
-      drawArrowHead(ctx, s.x1, s.y1, s.x2, s.y2);
+      drawArrowHead(ctx, s.x1, s.y1, s.x2, s.y2, arrowHeadSize);
     }
   } else if (s.type === 'rectangle') {
     if (s.fill && s.fill !== 'none') {

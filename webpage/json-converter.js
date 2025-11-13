@@ -134,6 +134,7 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
         drawing.x2 = shape.points[1][0] * scaleX;
         drawing.y2 = shape.points[1][1] * scaleY;
       }
+      drawing.arrowheadSize = shape.arrowhead_size * scaleX;
     } else if (shape.shape_type === 'rectangle') {
       drawing.type = 'rectangle';
       drawing.x = (shape.x - shape.scale_x / 2) * scaleX;
