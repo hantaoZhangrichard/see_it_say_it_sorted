@@ -323,38 +323,73 @@ function drawShape(ctx, s) {
     ctx.beginPath();
 
     const arrowHeadSize = s.arrowheadSize || 10;
+    const arrowStart = s.arrowStart || "no";
+    const arrowEnd = s.arrowEnd || "yes";
 
-    if (s.points && s.points.length > 1) {
-      // Shorten the last segment by arrowHeadSize
-      const pts = s.points.slice();
-      const L = pts.length;
-      const p1 = pts[L-2];
-      const p2 = pts[L-1];
-      const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
-      const newEnd = {
-        x: p2.x - arrowHeadSize * Math.cos(angle),
-        y: p2.y - arrowHeadSize * Math.sin(angle)
-      };
-      pts[L-1] = newEnd;
-      ctx.moveTo(pts[0].x, pts[0].y);
-      for (let i = 1; i < pts.length; i++) {
-        ctx.lineTo(pts[i].x, pts[i].y);
+    console.log(arrowHeadSize, arrowStart, arrowEnd);
+    console.log(s.points);
+    let pts = s.points.map(p => ({x: p.x, y: p.y}));
+
+    if (arrowEnd === 'yes') {
+      if (s.points && s.points.length > 1) {
+        if (s.points.length === 2) {
+          // Simple arrow: draw line and arrowhead
+          let p1 = pts[0];
+          let p2 = pts[1];
+          let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+          let newEnd = {
+            x: p2.x - 0.85 * arrowHeadSize * Math.cos(angle),
+            y: p2.y - 0.85 * arrowHeadSize * Math.sin(angle)
+          };
+          console.log('[arrowEnd] Simple arrow:', {arrowHeadSize, p1, p2, angle, newEnd});
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(newEnd.x, newEnd.y);
+          ctx.stroke();
+          console.log('[arrowEnd] drawArrowHead:', {from: p1, to: p2, arrowHeadSize});
+          drawArrowHead(ctx, p1.x, p1.y, p2.x, p2.y, arrowHeadSize);
+        } else {
+          // Polyline arrow: shorten last segment and draw arrowhead
+          let L = pts.length;
+          let p1 = pts[L-2];
+          let p2 = pts[L-1];
+          let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+          let newEnd = {
+            x: p2.x - 0.85 * arrowHeadSize * Math.cos(angle),
+            y: p2.y - 0.85 * arrowHeadSize * Math.sin(angle)
+          };
+          console.log('[arrowEnd] Polyline arrow:', {arrowHeadSize, p1, p2, angle, newEnd});
+          pts[L-1] = newEnd;
+          ctx.moveTo(pts[0].x, pts[0].y);
+          for (let i = 1; i < pts.length; i++) {
+            ctx.lineTo(pts[i].x, pts[i].y);
+          }
+          ctx.stroke();
+          console.log('[arrowEnd] drawArrowHead:', {from: p1, to: pts[L-1], arrowHeadSize});
+          drawArrowHead(ctx, p1.x, p1.y, pts[L-1].x, pts[L-1].y, arrowHeadSize);
+        }
       }
-      ctx.stroke();
-      drawArrowHead(ctx,
-        p1.x, p1.y,
-        p2.x, p2.y,
-        arrowHeadSize
-      );
-    } else {
-      // Shorten the line by arrowHeadSize
-      const angle = Math.atan2(s.y2 - s.y1, s.x2 - s.x1);
-      const newX2 = s.x2 - 0.85 * arrowHeadSize * Math.cos(angle);
-      const newY2 = s.y2 - 0.85 * arrowHeadSize * Math.sin(angle);
-      ctx.moveTo(s.x1, s.y1);
-      ctx.lineTo(newX2, newY2);
-      ctx.stroke();
-      drawArrowHead(ctx, s.x1, s.y1, s.x2, s.y2, arrowHeadSize);
+    }
+    console.log(s.points);
+    if (arrowStart === 'yes') {
+      if (s.points && s.points.length > 1) {
+        // Shorten the first segment by arrowHeadSize
+        let p1 = pts[0];
+        let p2 = pts[1];
+        let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+        let newStart = {
+          x: p1.x + 0.85 * arrowHeadSize * Math.cos(angle),
+          y: p1.y + 0.85 * arrowHeadSize * Math.sin(angle)
+        };
+        console.log('[arrowStart] Polyline arrow:', {arrowHeadSize, p1, p2, angle, newStart});
+        pts[0] = newStart;
+        ctx.moveTo(pts[0].x, pts[0].y);
+        for (let i = 1; i < pts.length; i++) {
+          ctx.lineTo(pts[i].x, pts[i].y);
+        }
+        ctx.stroke();
+        console.log('[arrowStart] drawArrowHead:', {from: p2, to: pts[0], arrowHeadSize});
+        drawArrowHead(ctx, p2.x, p2.y, pts[0].x, pts[0].y, arrowHeadSize);
+      }
     }
   } else if (s.type === 'rectangle') {
     if (s.fill && s.fill !== 'none') {

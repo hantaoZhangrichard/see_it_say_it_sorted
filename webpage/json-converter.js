@@ -6,7 +6,9 @@
  * Convert canvas drawings to JSON dictionary format
  * This format is compatible with the Python backend
  */
-function drawingsToJsonDict(drawings) {
+function drawingsToJsonDict(drawings, srcWidth = 800, srcHeight = 600, tgtWidth = 600, tgtHeight = 450) {
+  const scaleX = tgtWidth / srcWidth;
+  const scaleY = tgtHeight / srcHeight;
   const shapes = [];
   const MIN_S = 8;
 
@@ -14,59 +16,59 @@ function drawingsToJsonDict(drawings) {
     let shape = {
       shape_type: d.type,
       stroke_color: d.color || '#000000',
-      stroke_width: d.strokeWidth || 1,
+      stroke_width: (d.strokeWidth || 1) / ((scaleX + scaleY) / 2),
       fill_color: d.fill || 'none'
     };
 
     if (d.type === 'path') {
       shape.shape_type = 'polyline';
-      shape.points = d.points.map(p => [p.x, p.y]);
+      shape.points = d.points.map(p => [p.x / scaleX, p.y / scaleY]);
     } else if (d.type === 'line') {
       shape.shape_type = 'polyline';
-      shape.points = [[d.x1, d.y1], [d.x2, d.y2]];
+      shape.points = [[d.x1 / scaleX, d.y1 / scaleY], [d.x2 / scaleX, d.y2 / scaleY]];
     } else if (d.type === 'arrow') {
       shape.shape_type = 'arrow';
       if (d.points && d.points.length > 1) {
-        shape.points = d.points.map(p => [p.x, p.y]);
+        shape.points = d.points.map(p => [p.x / scaleX, p.y / scaleY]);
       } else {
-        shape.points = [[d.x1, d.y1], [d.x2, d.y2]];
+        shape.points = [[d.x1 / scaleX, d.y1 / scaleY], [d.x2 / scaleX, d.y2 / scaleY]];
       }
       shape.arrow_start = 'no';
       shape.arrow_end = 'yes';
       shape.arrowhead_type = 'triangle';
-      shape.arrowhead_size = Math.max(10, d.strokeWidth * 3);
+      shape.arrowhead_size = Math.max(10, (d.strokeWidth * 3) / ((scaleX + scaleY) / 2));
     } else if (d.type === 'rectangle') {
       shape.shape_type = 'rectangle';
-      shape.x = d.x + d.rectWidth / 2;
-      shape.y = d.y + d.rectHeight / 2;
-      shape.scale_x = d.rectWidth;
-      shape.scale_y = d.rectHeight;
+      shape.x = (d.x + d.rectWidth / 2) / scaleX;
+      shape.y = (d.y + d.rectHeight / 2) / scaleY;
+      shape.scale_x = d.rectWidth / scaleX;
+      shape.scale_y = d.rectHeight / scaleY;
     } else if (d.type === 'circle') {
       shape.shape_type = 'circle';
-      shape.x = d.x;
-      shape.y = d.y;
-      shape.scale_x = d.radius * 2;
-      shape.scale_y = d.radius * 2;
+      shape.x = d.x / scaleX;
+      shape.y = d.y / scaleY;
+      shape.scale_x = (d.radius * 2) / scaleX;
+      shape.scale_y = (d.radius * 2) / scaleY;
     } else if (d.type === 'ellipse') {
       shape.shape_type = 'ellipse';
-      shape.x = d.cx;
-      shape.y = d.cy;
-      shape.scale_x = d.rx * 2;
-      shape.scale_y = d.ry * 2;
+      shape.x = d.cx / scaleX;
+      shape.y = d.cy / scaleY;
+      shape.scale_x = (d.rx * 2) / scaleX;
+      shape.scale_y = (d.ry * 2) / scaleY;
     } else if (d.type === 'triangle') {
       shape.shape_type = 'triangle';
       const cx = (d.x1 + d.x2) / 2;
       const cy = (d.y1 + d.y2) / 2;
-      shape.x = cx;
-      shape.y = cy;
-      shape.scale_x = Math.abs(d.x2 - d.x1);
-      shape.scale_y = Math.abs(d.y2 - d.y1);
+      shape.x = cx / scaleX;
+      shape.y = cy / scaleY;
+      shape.scale_x = Math.abs(d.x2 - d.x1) / scaleX;
+      shape.scale_y = Math.abs(d.y2 - d.y1) / scaleY;
     } else if (d.type === 'text') {
       shape.shape_type = 'text';
       shape.text = d.text;
-      shape.x = d.x;
-      shape.y = d.y;
-      shape.font_size = d.fontSize || 18;
+      shape.x = d.x / scaleX;
+      shape.y = d.y / scaleY;
+      shape.font_size = (d.fontSize || 18) / ((scaleX + scaleY) / 2);
     }
 
     if (shape.scale_x !== undefined && Math.abs(shape.scale_x) < MIN_S) {
@@ -115,7 +117,7 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
   shapes.forEach(shape => {
     let drawing = {
       color: shape.stroke_color || '#000000',
-      strokeWidth: shape.stroke_width || 1,
+      strokeWidth: shape.stroke_width * scaleX || 1,
       fill: shape.fill_color || 'none'
     };
     
@@ -126,15 +128,14 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
       
     } else if (shape.shape_type === 'arrow' && shape.points && shape.points.length >= 2) {
       drawing.type = 'arrow';
-      if (shape.points.length > 2) {
-        drawing.points = shape.points.map(p => ({x: p[0] * scaleX, y: p[1] * scaleY}));
-      } else {
-        drawing.x1 = shape.points[0][0] * scaleX;
-        drawing.y1 = shape.points[0][1] * scaleY;
-        drawing.x2 = shape.points[1][0] * scaleX;
-        drawing.y2 = shape.points[1][1] * scaleY;
-      }
-      drawing.arrowheadSize = shape.arrowhead_size * scaleX;
+
+      drawing.points = shape.points.map(p => ({x: p[0] * scaleX, y: p[1] * scaleY}));
+
+      drawing.arrowheadSize = shape.arrowhead_size;
+      drawing.arrowStart = shape.arrow_start;
+      drawing.arrowEnd = shape.arrow_end;
+      console.log(shape.arrowhead_size, drawing.arrowStart, drawing.arrowEnd);
+
     } else if (shape.shape_type === 'rectangle') {
       drawing.type = 'rectangle';
       drawing.x = (shape.x - shape.scale_x / 2) * scaleX;
