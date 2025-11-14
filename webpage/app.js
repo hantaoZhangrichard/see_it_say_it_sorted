@@ -298,7 +298,11 @@ canvas.addEventListener('mousedown', (ev) => {
       rectWidth: 0, rectHeight: 0,
       cx: x, cy: y, rx: 0, ry: 0,
       radius: 0,
-      points: currentTool === 'arrow' ? [{x: x, y: y}, {x: x, y: y}] : undefined
+      points: currentTool === 'arrow' || currentTool === 'line' ? [{x: x, y: y}, {x: x, y: y}] : undefined,
+      arrowheadType: currentTool === 'arrow' ? 'triangle' : undefined,
+      arrowheadSize: currentTool === 'arrow' ? Math.max(10, lineWidth * 3) : undefined,
+      arrowStart: currentTool === 'arrow' ? 'no' : undefined,
+      arrowEnd: currentTool === 'arrow' ? 'yes' : undefined
     };
   }
   
@@ -327,9 +331,7 @@ canvas.addEventListener('mousemove', (ev) => {
       if (tempShape.type === 'line' || tempShape.type === 'arrow') {
         tempShape.x2 = x;
         tempShape.y2 = y;
-        if (tempShape.type === 'arrow') {
-          tempShape.points = [{x: tempShape.x1, y: tempShape.y1}, {x: tempShape.x2, y: tempShape.y2}];
-        }
+        tempShape.points = [{x: tempShape.x1, y: tempShape.y1}, {x: tempShape.x2, y: tempShape.y2}];
       } else if (tempShape.type === 'rectangle') {
         tempShape.rectWidth = x - tempShape.x;
         tempShape.rectHeight = y - tempShape.y;

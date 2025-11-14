@@ -326,53 +326,18 @@ function drawShape(ctx, s) {
     const arrowStart = s.arrowStart || "no";
     const arrowEnd = s.arrowEnd || "yes";
 
-    console.log(arrowHeadSize, arrowStart, arrowEnd);
-    console.log(s.points);
     let pts = s.points.map(p => ({x: p.x, y: p.y}));
-
     if (arrowEnd === 'yes') {
-      if (s.points && s.points.length > 1) {
-        if (s.points.length === 2) {
-          // Simple arrow: draw line and arrowhead
-          let p1 = pts[0];
-          let p2 = pts[1];
-          let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
-          let newEnd = {
-            x: p2.x - 0.85 * arrowHeadSize * Math.cos(angle),
-            y: p2.y - 0.85 * arrowHeadSize * Math.sin(angle)
-          };
-          console.log('[arrowEnd] Simple arrow:', {arrowHeadSize, p1, p2, angle, newEnd});
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(newEnd.x, newEnd.y);
-          ctx.stroke();
-          console.log('[arrowEnd] drawArrowHead:', {from: p1, to: p2, arrowHeadSize});
-          drawArrowHead(ctx, p1.x, p1.y, p2.x, p2.y, arrowHeadSize);
-        } else {
-          // Polyline arrow: shorten last segment and draw arrowhead
-          let L = pts.length;
-          let p1 = pts[L-2];
-          let p2 = pts[L-1];
-          let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
-          let newEnd = {
-            x: p2.x - 0.85 * arrowHeadSize * Math.cos(angle),
-            y: p2.y - 0.85 * arrowHeadSize * Math.sin(angle)
-          };
-          console.log('[arrowEnd] Polyline arrow:', {arrowHeadSize, p1, p2, angle, newEnd});
-          pts[L-1] = newEnd;
-          ctx.moveTo(pts[0].x, pts[0].y);
-          for (let i = 1; i < pts.length; i++) {
-            ctx.lineTo(pts[i].x, pts[i].y);
-          }
-          ctx.stroke();
-          console.log('[arrowEnd] drawArrowHead:', {from: p1, to: pts[L-1], arrowHeadSize});
-          drawArrowHead(ctx, p1.x, p1.y, pts[L-1].x, pts[L-1].y, arrowHeadSize);
-        }
+        let p1 = pts[pts.length - 2];
+        let p2 = pts[pts.length - 1];
+        let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+        let newEnd = {
+          x: p2.x - 0.85 * arrowHeadSize * Math.cos(angle),
+          y: p2.y - 0.85 * arrowHeadSize * Math.sin(angle)
+        };
+        pts[pts.length - 1] = newEnd;
       }
-    }
-    console.log(s.points);
-    if (arrowStart === 'yes') {
-      if (s.points && s.points.length > 1) {
-        // Shorten the first segment by arrowHeadSize
+      if (arrowStart === 'yes') {
         let p1 = pts[0];
         let p2 = pts[1];
         let angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
@@ -380,16 +345,24 @@ function drawShape(ctx, s) {
           x: p1.x + 0.85 * arrowHeadSize * Math.cos(angle),
           y: p1.y + 0.85 * arrowHeadSize * Math.sin(angle)
         };
-        console.log('[arrowStart] Polyline arrow:', {arrowHeadSize, p1, p2, angle, newStart});
         pts[0] = newStart;
-        ctx.moveTo(pts[0].x, pts[0].y);
-        for (let i = 1; i < pts.length; i++) {
-          ctx.lineTo(pts[i].x, pts[i].y);
-        }
-        ctx.stroke();
-        console.log('[arrowStart] drawArrowHead:', {from: p2, to: pts[0], arrowHeadSize});
-        drawArrowHead(ctx, p2.x, p2.y, pts[0].x, pts[0].y, arrowHeadSize);
       }
+
+    // Draw the arrow shaft (polyline)
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i++) {
+      ctx.lineTo(pts[i].x, pts[i].y);
+    }
+    ctx.stroke();
+
+    // Draw arrowhead at end
+    if (arrowEnd === 'yes' && pts.length > 1) {
+      let L = pts.length;
+      drawArrowHead(ctx, pts[L-2].x, pts[L-2].y, s.points[L-1].x, s.points[L-1].y, arrowHeadSize);
+    }
+    // Draw arrowhead at start
+    if (arrowStart === 'yes' && pts.length > 1) {
+      drawArrowHead(ctx, pts[1].x, pts[1].y, s.points[0].x, s.points[0].y, arrowHeadSize);
     }
   } else if (s.type === 'rectangle') {
     if (s.fill && s.fill !== 'none') {

@@ -33,10 +33,10 @@ function drawingsToJsonDict(drawings, srcWidth = 800, srcHeight = 600, tgtWidth 
       } else {
         shape.points = [[d.x1 / scaleX, d.y1 / scaleY], [d.x2 / scaleX, d.y2 / scaleY]];
       }
-      shape.arrow_start = 'no';
-      shape.arrow_end = 'yes';
-      shape.arrowhead_type = 'triangle';
-      shape.arrowhead_size = Math.max(10, (d.strokeWidth * 3) / ((scaleX + scaleY) / 2));
+      shape.arrow_start = d.arrowStart || 'no';
+      shape.arrow_end = d.arrowEnd || 'yes';
+      shape.arrowhead_type = d.arrowheadType || 'triangle';
+      shape.arrowhead_size = d.arrowheadSize / ((scaleX + scaleY) / 2) || 10;
     } else if (d.type === 'rectangle') {
       shape.shape_type = 'rectangle';
       shape.x = (d.x + d.rectWidth / 2) / scaleX;
@@ -131,11 +131,9 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
 
       drawing.points = shape.points.map(p => ({x: p[0] * scaleX, y: p[1] * scaleY}));
 
-      drawing.arrowheadSize = shape.arrowhead_size;
+      drawing.arrowheadSize = shape.arrowhead_size * ((scaleX + scaleY) / 2);
       drawing.arrowStart = shape.arrow_start;
       drawing.arrowEnd = shape.arrow_end;
-      console.log(shape.arrowhead_size, drawing.arrowStart, drawing.arrowEnd);
-
     } else if (shape.shape_type === 'rectangle') {
       drawing.type = 'rectangle';
       drawing.x = (shape.x - shape.scale_x / 2) * scaleX;
@@ -169,7 +167,7 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
       drawing.text = shape.text;
       drawing.x = shape.x * scaleX;
       drawing.y = shape.y * scaleY;
-      drawing.fontSize = shape.font_size || 18;
+      drawing.fontSize = shape.font_size * ((scaleX + scaleY) / 2) || 18;
     }
     
     if (drawing.type) {
