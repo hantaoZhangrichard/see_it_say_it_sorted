@@ -69,6 +69,13 @@ function drawingsToJsonDict(drawings, srcWidth = 800, srcHeight = 600, tgtWidth 
       shape.x = d.x / scaleX;
       shape.y = d.y / scaleY;
       shape.font_size = (d.fontSize || 18) / ((scaleX + scaleY) / 2);
+      shape.text_color = d.textColor || d.color || '#000000';
+      shape.font_family = d.fontFamily || 'Arial';
+      shape.text_anchor = d.textAnchor || 'middle';
+      // Remove stroke_color, stroke_width, fill_color for text
+      delete shape.stroke_color;
+      delete shape.stroke_width;
+      delete shape.fill_color;
     }
 
     if (shape.scale_x !== undefined && Math.abs(shape.scale_x) < MIN_S) {
