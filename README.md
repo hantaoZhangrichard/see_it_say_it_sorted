@@ -2,18 +2,26 @@
 
 Transform sketches into clean SVG diagrams using AI in seconds.
 
+# Flowchart Editor
+The Flowchart Editor website is built on top of our agent and allows you to create, edit, and optimize diagrams interactively.
+
+![Flowchart Editor Screenshot](img/flowchart_editor.png)
+
+
 ## Quick Start (2 minutes)
 
 ### 1. Install Dependencies
 ```bash
-pip install google-genai pillow opencv-python cairosvg numpy
+pip install -r requirements.txt
 ```
 
 ### 2. Set API Keys
 ```python
 # In run_agent_svg.ipynb, first cell:
 os.environ['GEMINI_API_KEY'] = 'your-gemini-api-key-here'
-# Get key at: https://makersuite.google.com/app/apikey
+# or
+os.environ['OPENAI_API_KEY'] = 'your-gpt-api-key-here'
+# In flowchart editor we used OPENAI API
 ```
 
 ### 3. Add Your Sketch
@@ -39,7 +47,7 @@ Run all cells → Your SVG appears in `agent_svg/sketch/` folder
 
 ```python
 # Basic usage
-model_name = "gemini-2.0-flash-exp"  # or "gemini-1.5-pro"
+model_name = "gemini-2.5-pro"
 agent = Agent(model_name=model_name, 
               target_image_path="./diagram.jpg",
               canvas_w=800, canvas_h=600)
@@ -77,3 +85,27 @@ Find your results in `agent_svg/[task_id]/`:
 - **No output?** Check API key is valid
 - **Poor results?** Try clearer sketch or add custom instructions
 - **Installation issues?** Use Python 3.8+
+
+## Using Flowchart Editor
+
+### 1. Start the Web Server
+- Open your terminal and run:
+  ```bash
+  python flowchart_editor/svg_server.py
+  ```
+- To use a custom port:
+  ```bash
+  python flowchart_editor/svg_server.py --port 8080
+  ```
+  (Default port is 8080)
+
+### 2. Open the Webpage
+- Visit `http://localhost:8080` in your browser.
+
+### 3. How to Use
+- **Draw:** Select a tool and draw on the canvas.
+- **Generate:** Click "Generate JSON" to create a JSON representation of your diagram.
+- **Save:** Click "Save" to store your diagram in the database.
+- **Agent:** Enter text and/or image instructions, then click to let the AI generate or optimize your diagram.
+  - Make sure to click "Generate JSON" before interacting with the agent.
+  - You can generate an empty JSON and let the agent create a flowchart from scratch.
