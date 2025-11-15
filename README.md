@@ -5,7 +5,7 @@ Transform sketches into clean SVG diagrams using AI in seconds.
 # Flowchart Editor
 The Flowchart Editor website is built on top of our agent and allows you to create, edit, and optimize diagrams interactively.
 
-![Flowchart Editor Screenshot](img/flowchart_editor.png)
+![Flowchart Editor Screenshot](imgs/flowchart_editor.png)
 
 
 ## Quick Start (2 minutes)
