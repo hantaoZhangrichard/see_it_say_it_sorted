@@ -7,6 +7,8 @@ The Flowchart Editor website is built on top of our agent and allows you to crea
 
 ![Flowchart Editor Screenshot](imgs/flowchart_editor.png)
 
+
+Example Usage: 
 ![Flowchart Editor Example Usage](imgs/flowchart_exp.png)
 
 
