@@ -705,7 +705,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
   const jsonText = JSON.stringify(jsonDict, null, 2);
   document.getElementById('json-code').value = jsonText;
 
-  await updateSVGPreview(jsonDict);
+  // await updateSVGPreview(jsonDict);
 });
   /**
    * Update SVG preview from JSON data
@@ -794,7 +794,7 @@ document.getElementById('json-code').addEventListener('input', (e) => {
       redraw();
       
       // Update SVG preview
-      await updateSVGPreview(jsonDict);
+      // await updateSVGPreview(jsonDict);
       
       // Show success
       jsonCodeArea.classList.add('valid');

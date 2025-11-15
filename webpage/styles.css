@@ -117,7 +117,7 @@ canvas {
 }
 
 /* SVG Preview */
-.svg-preview {
+/* .svg-preview {
   height: 200px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -134,11 +134,11 @@ canvas {
 
 .svg-preview text {
   font-family: monospace !important;
-}
+} */
 
 /* JSON Code Area */
 .json-code {
-  height: 230px;
+  height: 460px;
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 6px;
