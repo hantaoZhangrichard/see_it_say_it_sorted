@@ -113,3 +113,5 @@ Find your results in `agent_svg/[task_id]/`:
 - **Agent:** Enter text and/or image instructions, then click to let the AI generate or optimize your diagram.
   - Make sure to click "Generate JSON" before interacting with the agent.
   - You can generate an empty JSON and let the agent create a flowchart from scratch.
+
+**Special thanks to Jiaruo Liu, Xiaowen Yin, Yayan Jiang, and Yidan Mei for their valuable contributions to the Flowchart Editor.**
