@@ -395,8 +395,11 @@ function drawShape(ctx, s) {
     }
     ctx.stroke();
   } else if (s.type === 'text') {
-    ctx.fillStyle = s.color || '#000';
-    ctx.font = `${s.fontSize || 18}px Arial`;
+    ctx.fillStyle = s.textColor || '#000';
+    ctx.font = `${s.fontSize || 18}px ${s.fontFamily || 'Arial'}`;
+    if (s.textAnchor === 'middle') ctx.textAlign = 'center';
+    else if (s.textAnchor === 'end') ctx.textAlign = 'right';
+    else ctx.textAlign = 'left';
     ctx.fillText(s.text, s.x, s.y);
   }
 }

@@ -498,116 +498,30 @@ if __name__ == "__main__":
     
     # Example shapes
     shapes = [
-    {
-        "shape_type": "rectangle",
-        "x": 400,
-        "y": 50,
-        "scale_x": 700,
-        "scale_y": 40,
-        "fill_color": "yellow",
-        "stroke_color": "black",
-        "stroke_width": 2
-    },
-    {
-        "shape_type": "rectangle",
-        "x": 120,
-        "y": 260,
-        "scale_x": 50,
-        "scale_y": 50,
-        "fill_color": "purple",
-        "stroke_color": "black",
-        "stroke_width": 1
-    },
-    {
-        "shape_type": "rectangle",
-        "x": 190,
-        "y": 260,
-        "scale_x": 50,
-        "scale_y": 50,
-        "fill_color": "purple",
-        "stroke_color": "black",
-        "stroke_width": 1
-    },
-    {
-        "shape_type": "rectangle",
-        "x": 120,
-        "y": 360,
-        "scale_x": 50,
-        "scale_y": 50,
-        "fill_color": "purple",
-        "stroke_color": "black",
-        "stroke_width": 1
-    },
-    {
-        "shape_type": "rectangle",
-        "x": 190,
-        "y": 360,
-        "scale_x": 50,
-        "scale_y": 50,
-        "fill_color": "purple",
-        "stroke_color": "black",
-        "stroke_width": 1
-    },
-    {
-        "shape_type": "ellipse",
-        "x": 280,
-        "y": 300,
-        "scale_x": 160,
-        "scale_y": 110,
-        "fill_color": "blue",
-        "stroke_color": "black",
-        "stroke_width": 2
-    },
-    {
-        "shape_type": "rectangle",
-        "x": 560,
-        "y": 300,
-        "scale_x": 120,
-        "scale_y": 120,
-        "fill_color": "red",
-        "stroke_color": "black",
-        "stroke_width": 2
-    },
-    {
-        "shape_type": "triangle",
-        "x": 650,
-        "y": 500,
-        "scale_x": 120,
-        "scale_y": 10,
-        "fill_color": "green",
-        "stroke_color": "black",
-        "stroke_width": 2
-    },
-    {
-        "shape_type": "arrow",
-        "points": [[370, 300], [490, 300]],
-        "stroke_color": "black",
-        "stroke_width": 2,
-        "arrow_start": 'no',
-        "arrow_end": 'yes',
-        "arrowhead_size": 12
-    },
-    {
-        "shape_type": "arrow",
-        "points": [[700, 340], [700, 440]],
-        "stroke_color": "black",
-        "stroke_width": 2,
-        "arrow_start": 'no',
-        "arrow_end": 'yes',
-        "arrowhead_size": 12
-    },
-    {
-        "shape_type": "arrow",
-        "points": [[580, 520], [230, 520]],
-        "stroke_color": "black",
-        "stroke_width": 2,
-        "arrow_start": 'yes',
-        "arrow_end": 'yes',
-        "arrowhead_size": 12
-    }
+        {
+            "shape_type": "arrow",
+            "points": [[580, 520], [230, 520]],
+            "stroke_color": "black",
+            "stroke_width": 2,
+            "arrow_start": 'yes',
+            "arrow_end": 'yes',
+            "arrowhead_size": 12
+        },
+        {
+            "font_family": "Monospace",
+            "font_size": 16,
+            "shape_type": "text",
+            "text": "Managing Director (MD)",
+            "text_anchor": "middle",
+            "text_color": "blue",
+            "x": 400,
+            "y": 530
+        }
     ]
     
     agent.create_from_dict(shapes)
     agent.save("example.svg")
     agent.save_png("example.png")
     print("SVG saved to example.svg")
+    svg = agent.render()
+    print(svg)

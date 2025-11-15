@@ -132,6 +132,10 @@ canvas {
   display: block;
 }
 
+.svg-preview text {
+  font-family: monospace !important;
+}
+
 /* JSON Code Area */
 .json-code {
   height: 230px;

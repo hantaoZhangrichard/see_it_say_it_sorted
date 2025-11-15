@@ -165,9 +165,12 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
     } else if (shape.shape_type === 'text') {
       drawing.type = 'text';
       drawing.text = shape.text;
+      drawing.textColor = shape.text_color || '#000000';
       drawing.x = shape.x * scaleX;
       drawing.y = shape.y * scaleY;
       drawing.fontSize = shape.font_size * ((scaleX + scaleY) / 2) || 18;
+      drawing.fontFamily = shape.font_family || 'Arial';
+      drawing.textAnchor = shape.text_anchor || 'middle';
     }
     
     if (drawing.type) {
@@ -244,7 +247,8 @@ function generateSVGFromJson(shapes, width = 800, height = 600) {
       svg += `<polygon points="${x1},${y1} ${x2},${y2} ${x3},${y3}" stroke="${stroke}" stroke-width="${strokeWidth}" fill="${fill}"/>`;
     } else if (shape.shape_type === 'text') {
       const fs = shape.font_size || 18;
-      svg += `<text x="${shape.x}" y="${shape.y}" fill="${stroke}" font-size="${fs}" font-family="Arial">${shape.text}</text>`;
+      console.log(shape.font_family)
+      svg += `<text x="${shape.x}" y="${shape.y}" fill="${shape.text_color || '#000'}" font-size="${fs}" font-family="${shape.font_family || 'Arial'}">${shape.text}</text>`;
     }
   });
   
