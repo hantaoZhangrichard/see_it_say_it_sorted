@@ -2,6 +2,8 @@
 
 Transform sketches into clean SVG diagrams using AI in minutes.
 
+Read our paper: [See it. Say it. Sorted: Agentic System for Compositional Diagram Generation](https://arxiv.org/abs/2508.15222)
+
 # Flowchart Editor
 The Flowchart Editor website is built on top of our agent and allows you to create, edit, and optimize diagrams interactively.
 
@@ -118,3 +120,6 @@ Find your results in `agent_svg/[task_id]/`:
 ### Acknowledgement
 
 **Special thanks to Jiaruo Liu, Xiaowen Yin, Yayan Jiang, and Yidan Mei for their valuable contributions to the Flowchart Editor.**
+
+
+### License
