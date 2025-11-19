@@ -17,7 +17,8 @@ function drawingsToJsonDict(drawings, srcWidth = 800, srcHeight = 600, tgtWidth 
       shape_type: d.type,
       stroke_color: d.color || '#000000',
       stroke_width: (d.strokeWidth || 1) / ((scaleX + scaleY) / 2),
-      fill_color: d.fill || 'none'
+      fill_color: d.fill || 'none',
+      rotation: d.rotation || 0
     };
 
     if (d.type === 'path') {
@@ -125,7 +126,8 @@ function jsonDictToDrawings(shapes, srcWidth = 800, srcHeight = 600, tgtWidth = 
     let drawing = {
       color: shape.stroke_color || '#000000',
       strokeWidth: shape.stroke_width * scaleX || 1,
-      fill: shape.fill_color || 'none'
+      fill: shape.fill_color || 'none',
+      rotation: shape.rotation || 0
     };
     
     if (shape.shape_type === 'polyline' && shape.points) {

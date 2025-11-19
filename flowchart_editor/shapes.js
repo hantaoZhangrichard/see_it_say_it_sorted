@@ -300,10 +300,35 @@ function getHandles(s) {
  * Draw a single shape on canvas
  */
 function drawShape(ctx, s) {
-  ctx.strokeStyle = s.color || '#000';
+  // Only set strokeStyle if color is not "none"
+  if (s.color !== "none") {
+    ctx.strokeStyle = s.color || '#000';
+  }
   ctx.lineWidth = s.strokeWidth || 1;
   ctx.fillStyle = s.fill || 'none';
-  
+
+  // --- Rotation support ---
+  let hasRotation = typeof s.rotation === "number" && s.rotation !== 0;
+  console.log("Drawing shape with rotation:", s.rotation);
+  if (hasRotation) {
+    ctx.save();
+    // Find center for rotation based on shape type
+    let cx = 0, cy = 0;
+    if (s.type === "rectangle" || s.type === "text") {
+      cx = s.x + (s.rectWidth || 0) / 2;
+      cy = s.y + (s.rectHeight || 0) / 2;
+    } else if (s.type === "ellipse") {
+      cx = s.cx;
+      cy = s.cy;
+    } else if (s.type === "triangle") {
+      cx = (s.x1 + s.x2) / 2;
+      cy = (s.y1 + s.y2) / 2;
+    } 
+    ctx.translate(cx, cy);
+    ctx.rotate(s.rotation * Math.PI / 180);
+    ctx.translate(-cx, -cy);
+  }
+
   if (s.type === 'path') {
     if (!s.points || s.points.length < 2) return;
     ctx.beginPath();
@@ -311,14 +336,16 @@ function drawShape(ctx, s) {
     for (let i = 1; i < s.points.length; i++) {
       ctx.lineTo(s.points[i].x, s.points[i].y);
     }
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
   } else if (s.type === 'line') {
     ctx.beginPath();
     ctx.moveTo(s.x1, s.y1);
     ctx.lineTo(s.x2, s.y2);
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
   } else if (s.type === 'arrow') {
-    ctx.strokeStyle = s.color || '#2c3e50';
+    if (s.color !== "none") {
+      ctx.strokeStyle = s.color || '#2c3e50';
+    }
     ctx.lineWidth = s.strokeWidth || 3;
     ctx.beginPath();
 
@@ -353,36 +380,36 @@ function drawShape(ctx, s) {
     for (let i = 1; i < pts.length; i++) {
       ctx.lineTo(pts[i].x, pts[i].y);
     }
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
 
     // Draw arrowhead at end
-    if (arrowEnd === 'yes' && pts.length > 1) {
+    if (arrowEnd === 'yes' && pts.length > 1 && s.color !== "none") {
       let L = pts.length;
       drawArrowHead(ctx, pts[L-2].x, pts[L-2].y, s.points[L-1].x, s.points[L-1].y, arrowHeadSize);
     }
     // Draw arrowhead at start
-    if (arrowStart === 'yes' && pts.length > 1) {
+    if (arrowStart === 'yes' && pts.length > 1 && s.color !== "none") {
       drawArrowHead(ctx, pts[1].x, pts[1].y, s.points[0].x, s.points[0].y, arrowHeadSize);
     }
   } else if (s.type === 'rectangle') {
     if (s.fill && s.fill !== 'none') {
       ctx.fillRect(s.x, s.y, s.rectWidth, s.rectHeight);
     }
-    ctx.strokeRect(s.x, s.y, s.rectWidth, s.rectHeight);
+    if (s.color !== "none") ctx.strokeRect(s.x, s.y, s.rectWidth, s.rectHeight);
   } else if (s.type === 'circle') {
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
     if (s.fill && s.fill !== 'none') {
       ctx.fill();
     }
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
   } else if (s.type === 'ellipse') {
     ctx.beginPath();
     ctx.ellipse(s.cx, s.cy, s.rx, s.ry, 0, 0, Math.PI * 2);
     if (s.fill && s.fill !== 'none') {
       ctx.fill();
     }
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
   } else if (s.type === 'triangle') {
     const cx = (s.x1 + s.x2) / 2;
     ctx.beginPath();
@@ -393,13 +420,18 @@ function drawShape(ctx, s) {
     if (s.fill && s.fill !== 'none') {
       ctx.fill();
     }
-    ctx.stroke();
+    if (s.color !== "none") ctx.stroke();
   } else if (s.type === 'text') {
     ctx.fillStyle = s.textColor || '#000';
     ctx.font = `${s.fontSize || 18}px ${s.fontFamily || 'Arial'}`;
     if (s.textAnchor === 'middle') ctx.textAlign = 'center';
     else if (s.textAnchor === 'end') ctx.textAlign = 'right';
     else ctx.textAlign = 'left';
-    ctx.fillText(s.text, s.x, s.y);
+    ctx.fillText(s.text, s.x, s.y + s.fontSize / 2);
+  }
+
+  // After drawing, restore context if rotated
+  if (hasRotation) {
+    ctx.restore();
   }
 }

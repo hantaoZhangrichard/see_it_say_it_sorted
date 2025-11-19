@@ -9,8 +9,7 @@ function sendChat() {
   const text = input.value.trim();
   const imageInput = document.getElementById('chatbot-image-input');
   console.log("Sending chat with text:", text);
-  console.log("Image input files:", imageInput.files);
-
+  console.log("Image input files:", imageInput.files.length);
   let jsonText = '';
   let jsonDict = {};
   jsonText = document.getElementById('json-code').value;
@@ -45,6 +44,7 @@ function sendChat() {
     .then(async data => {
       if (data.reply) {
         botBubble.textContent = data.reply;
+        console.log("Description from bot:", data.description);
         if (data.shapes) {
           try {
             jsonDict = data.shapes;
@@ -57,7 +57,7 @@ function sendChat() {
             currentPath = null;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             redraw();
-            await updateSVGPreview(jsonDict);
+            // await updateSVGPreview(jsonDict);
           } catch (error) {
             console.error('Error updating JSON:', error);
           }
@@ -99,7 +99,7 @@ function sendChat() {
             currentPath = null;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             redraw();
-            await updateSVGPreview(jsonDict);
+            // await updateSVGPreview(jsonDict);
           } catch (error) {
             console.error('Error updating JSON:', error);
           }

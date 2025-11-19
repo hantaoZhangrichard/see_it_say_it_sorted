@@ -40,11 +40,13 @@ Principles
 - Describe what changes visually (e.g., “the left node is replaced with a green decision diamond”) while maintaining relational context.
 
 Output Style
-- Produce a structured, natural-language description that:
+Produce a structured, natural-language description that:
+- Only reflects what the diagram should look like after modifications requested; 
 - Names the main components and their roles;
 - Describes relative spatial and logical relationships;
-- Reflects the modifications requested;
-- Ends with a concise summary of the overall layout or flow.
+- Describes the overall layout or flow;
+- Be concise yet comprehensive, avoiding unnecessary detail.
+- Gives you final output on the diagram after integrating user instructions inside <answer>...</answer> tags.
 
 Example
 
@@ -53,7 +55,7 @@ User instruction: “Convert it into a clean digital version with color-coded st
 
 Output (textual description):
 
-The diagram depicts a top-to-bottom flowchart. A rounded rectangle labeled “Start” connects via a downward arrow to a process box labeled “Collect Data.” Below it, a diamond labeled “Is Data Clean?” branches into two arrows — the right arrow leads to “Clean Data” and returns to the decision, while the left arrow leads to “End.” Each step is color-coded: blue for processes, yellow for decisions, and green for terminal nodes. The layout is vertically aligned with evenly spaced elements and centered connections.
+<answer> The diagram depicts a top-to-bottom flowchart. A rounded rectangle labeled “Start” connects via a downward arrow to a process box labeled “Collect Data.” Below it, a diamond labeled “Is Data Clean?” branches into two arrows — the right arrow leads to “Clean Data” and returns to the decision, while the left arrow leads to “End.” Each step is color-coded: blue for processes, yellow for decisions, and green for terminal nodes. The layout is vertically aligned with evenly spaced elements and centered connections. </answer>
 """
 
 

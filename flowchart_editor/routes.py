@@ -75,7 +75,7 @@ def json_to_svg():
 def agent():
     # Read image if present
     image = request.files.get('image')
-
+    description = ""
     if request.is_json:
         data = request.get_json()
     else:
@@ -88,31 +88,15 @@ def agent():
     agent = Agent(model_name="gpt-5")
 
     if image:
+        print("Image received in request.")
         mime_type = image.mimetype or "application/octet-stream"
         b64 = base64.b64encode(image.read()).decode("utf-8")
         data_url = f"data:{mime_type};base64,{b64}"
+        
+        # thought, response = agent.optimization_step_user(current_expression=svg_json, actions=user_message, image_base64=data_url)
         thought, response, description = agent.optimization_step_vlm(current_expression=svg_json, actions=user_message, image_base64=data_url)
         print("Generated description:", description)
-        #     conversation_history.append({
-        #         "role": "user",
-        #         "content": [
-        #             {"type": "text", "text": user_message},
-        #             {"type": "image_url", "image_url": {"url": data_url}}
-        #         ]
-        #     })
     else:
-        #     conversation_history.append({
-        #             "role": "user",
-        #             "content": user_message
-        #         })
-
         thought, response = agent.optimization_step_user(current_expression=svg_json, actions=user_message)
-    # print(type(response))
-    # response = call_llm(conversation_history)
 
-    # conversation_history.append({
-    #         "role": "assistant",
-    #         "content": str(response)
-    #     })
-
-    return jsonify({'reply': thought, 'shapes': response})
+    return jsonify({'reply': thought, 'shapes': response, 'description': description})

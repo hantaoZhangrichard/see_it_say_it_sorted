@@ -2,7 +2,9 @@ google-genai
 pillow
 opencv-python
 cairosvg
+cairo
 numpy
 openai
 flask
 flask-cors
+dotenv

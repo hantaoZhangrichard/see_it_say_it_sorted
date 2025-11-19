@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from .prompts_svg import LLM_grammar_sys, SINGLE_CANDIDATE_GENERATION_PROMPT
 from .prompts_vlm import vlm_description_sys, vlm_description_user
 from .api_call_gpt import call_llm_parallel, call_llm
-from .parser import parse_answer_json, format_message, parse_think
+from .parser import parse_answer_json, format_message, parse_think, parse_answer
 
 
 class Agent:
@@ -17,11 +17,12 @@ class Agent:
                  canvas_w=800, canvas_h=600):
         self.model_name = model_name
         self.LLM_grammar_sys = LLM_grammar_sys.format(canvas_width=canvas_w, canvas_height=canvas_h)
-    
-    def optimization_step_user(self, current_expression, actions) -> Tuple[str, Dict[str, Any], bool]:
+
+    def optimization_step_user(self, current_expression, actions, image_base64: str=None) -> Tuple[str, Dict[str, Any], bool]:
         thought, candidates = self._generate_expressions(
             current_expression,
-            actions
+            actions,
+            image_base64=image_base64
         )
         return thought, candidates[0]
     
@@ -33,7 +34,7 @@ class Agent:
         )
         return thought, candidates[0], description
 
-    def _generate_expressions(self, current_expression: List, actions: str) -> List[str]:
+    def _generate_expressions(self, current_expression: List, actions: str, image_base64: str=None) -> List[str]:
         # Prepare parallel requests
         requests = []
         user_prompt = SINGLE_CANDIDATE_GENERATION_PROMPT.format(
@@ -47,7 +48,15 @@ class Agent:
             "messages": messages,
             "model_name": self.model_name,
         })
-        
+        if image_base64:
+            print("Image provided, adding to request.")
+            requests.append({
+                "role": "user",
+                "content": [
+                    {"type": "image_url", "image_url": {"url": image_base64}}
+                ]
+            })
+
         # Execute parallel API calls
         results = call_llm_parallel(requests, max_workers=5)
         
@@ -88,5 +97,6 @@ class Agent:
             messages=requests,
             model_name=self.model_name
         )
+        description = parse_answer(response)
 
-        return response
+        return description
