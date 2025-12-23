@@ -4,14 +4,21 @@ Transform sketches into clean SVG diagrams using AI in minutes.
 
 Read our paper: [See it. Say it. Sorted: Agentic System for Compositional Diagram Generation](https://arxiv.org/abs/2508.15222)
 
-# Flowchart Editor
-The Flowchart Editor website is built on top of our agent and allows you to create, edit, and optimize diagrams interactively.
 
-![Flowchart Editor Screenshot](imgs/flowchart_editor.png)
+# Symbology
+<p align="center">
+  <img src="imgs/logo_final.png" width="300"><br>
+  <strong>A web-based collaborative symbolic SVG editor with AI assistance.</strong>
+</p>
+
+Unleash a new form of creativity where code meets canvas. Symbology transforms your prompts into editable, symbolic structures, allowing you to craft everything from intricate flowcharts to bold, blocky abstract art without touching a bezier curve. Because every diagram is built on a programmable language of shapes, you aren't just getting a static image—you’re getting a living design. Collaborate with AI to iterate instantly, dive into the code to fine-tune the details, and download clean SVGs that fit perfectly into your projects. It’s design, decoded.
+
+![Symbology Workflow](imgs/symbology_workflow.png)
 
 
-Example Usage: 
-![Flowchart Editor Example Usage](imgs/flowchart_exp.png)
+Example Usage: Flowchart generation from machine learning project description
+![Example Usage](imgs/flowchart_editor.jpg)
+
 
 
 ## Quick Start (2 minutes)
