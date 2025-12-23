@@ -16,8 +16,8 @@ Unleash a new form of creativity where code meets canvas. Symbology transforms y
 ![Symbology Workflow](imgs/symbology_workflow.png)
 
 
-Example Usage: Flowchart generation from machine learning project description
-![Example Usage](imgs/flowchart_editor.jpg)
+Example Usage: 
+![Example Usage](imgs/winterbreak.png)
 
 
 
