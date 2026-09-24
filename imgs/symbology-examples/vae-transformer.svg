@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="806" height="568.3955078125" viewBox="-1 -9.3955078125 806 568.3955078125">
+  <defs>
+  </defs>
+  <polyline points="100,166 112.35,166" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="120,166 112.206,170.5 112.206,161.5" fill="#766052" />
+  <polyline points="250,156 265,156 265,123 272.35,123" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="280,123 272.206,127.5 272.206,118.5" fill="#766052" />
+  <polyline points="250,176 265,176 265,209 272.35,209" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="280,209 272.206,213.5 272.206,204.5" fill="#766052" />
+  <polyline points="380,123 395,123 407.48,158.777" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="410,166 403.184,160.123 411.682,157.159" fill="#766052" />
+  <polyline points="380,209 395,209 407.48,173.223" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="410,166 411.682,174.841 403.184,171.877" fill="#766052" />
+  <polyline points="470,96 470,113.35" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="470,121 465.5,113.206 474.5,113.206" fill="#766052" />
+  <polyline points="530,166 537.35,166" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="545,166 537.206,170.5 537.206,161.5" fill="#766052" />
+  <polyline points="675,166 702.35,166" stroke="#766052" stroke-width="3" fill="none" />
+  <polygon points="710,166 702.206,170.5 702.206,161.5" fill="#766052" />
+  <ellipse cx="70" cy="166" rx="30" ry="30" stroke="#8f4a3b" stroke-width="3" fill="#d8a08f" />
+  <foreignObject x="0" y="144" width="800" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:70px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:10px;font-weight:bold;font-style:normal;text-decoration:none;color:#4b2f29;"><span style="vertical-align:middle;white-space:pre">Input</span></div></div></foreignObject>
+  <foreignObject x="0" y="158" width="800" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:70px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:10px;font-weight:bold;font-style:normal;text-decoration:none;color:#4b2f29;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span></div></div></foreignObject>
+  <rect x="120" y="131" width="130" height="70" rx="14" ry="14" stroke="#526773" stroke-width="3" fill="#aebdc1" />
+  <foreignObject x="0" y="130.8" width="800" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:185px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#26343a;"><span style="vertical-align:middle;white-space:pre">Encoder</span></div></div></foreignObject>
+  <foreignObject x="0" y="153.2" width="800" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:185px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#26343a;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>ϕ</mi></msub><mo stretchy="false">(</mo><mi>z</mi><mi mathvariant="normal">∣</mi><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">q_\phi(z|x)</annotation></semantics></math></span></div></div></foreignObject>
+  <rect x="280" y="99" width="100" height="48" rx="11" ry="11" stroke="#715665" stroke-width="3" fill="#bba8b0" />
+  <foreignObject x="0" y="92.2" width="800" height="42"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:330px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#3f3037;"><span style="vertical-align:middle;white-space:pre">Mean</span></div></div></foreignObject>
+  <foreignObject x="0" y="111.80000000000001" width="800" height="42"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:330px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#3f3037;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mu(x)</annotation></semantics></math></span></div></div></foreignObject>
+  <rect x="280" y="185" width="100" height="48" rx="11" ry="11" stroke="#665568" stroke-width="3" fill="#aaa0ae" />
+  <foreignObject x="0" y="184.8" width="800" height="33"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:330px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:11px;font-weight:bold;font-style:normal;text-decoration:none;color:#352f3b;"><span style="vertical-align:middle;white-space:pre">Log variance</span></div></div></foreignObject>
+  <foreignObject x="0" y="200.2" width="800" height="33"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:330px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:11px;font-weight:bold;font-style:normal;text-decoration:none;color:#352f3b;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log\sigma^2(x)</annotation></semantics></math></span></div></div></foreignObject>
+  <ellipse cx="470" cy="71" rx="48" ry="25" stroke="#96713a" stroke-width="3" fill="#dfc58e" />
+  <foreignObject x="0" y="49" width="800" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:10px;font-weight:bold;font-style:normal;text-decoration:none;color:#4c3b24;"><span style="vertical-align:middle;white-space:pre">Noise</span></div></div></foreignObject>
+  <foreignObject x="0" y="63" width="800" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:10px;font-weight:bold;font-style:normal;text-decoration:none;color:#4c3b24;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo>∼</mo><mi mathvariant="script">N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>I</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\epsilon\sim\mathcal{N}(0,I)</annotation></semantics></math></span></div></div></foreignObject>
+  <polygon points="470,121 530,166 470,211 410,166" stroke="#5f6b55" stroke-width="3" fill="#aeb99e" />
+  <foreignObject x="0" y="137.4" width="800" height="39"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#2f382b;"><span style="vertical-align:middle;white-space:pre">Latent</span></div></div></foreignObject>
+  <foreignObject x="0" y="155.6" width="800" height="39"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#2f382b;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span></div></div></foreignObject>
+  <foreignObject x="0" y="218.2" width="800" height="42"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#766052;"><span style="vertical-align:middle;white-space:pre">Reparameterization</span></div></div></foreignObject>
+  <foreignObject x="0" y="237.8" width="800" height="42"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:470px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#766052;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>μ</mi><mo>+</mo><mi>σ</mi><mo>⊙</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">z=\mu+\sigma\odot\epsilon</annotation></semantics></math></span></div></div></foreignObject>
+  <rect x="545" y="131" width="130" height="70" rx="14" ry="14" stroke="#556f6b" stroke-width="3" fill="#a9bfba" />
+  <foreignObject x="0" y="130.8" width="800" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:610px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#293b38;"><span style="vertical-align:middle;white-space:pre">Decoder</span></div></div></foreignObject>
+  <foreignObject x="0" y="153.2" width="800" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:610px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#293b38;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p_\theta(x|z)</annotation></semantics></math></span></div></div></foreignObject>
+  <ellipse cx="740" cy="166" rx="30" ry="30" stroke="#8f4a3b" stroke-width="3" fill="#d8a08f" />
+  <foreignObject x="0" y="146.2" width="800" height="27"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:740px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:9px;font-weight:bold;font-style:normal;text-decoration:none;color:#4b2f29;"><span style="vertical-align:middle;white-space:pre">Output</span></div></div></foreignObject>
+  <foreignObject x="0" y="158.8" width="800" height="27"><div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;"><div style="position:absolute;left:740px;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;white-space:nowrap;font-family:Arial;font-size:9px;font-weight:bold;font-style:normal;text-decoration:none;color:#4b2f29;"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{x}</annotation></semantics></math></span></div></div></foreignObject>
+  <polyline points="35,300 765,300" stroke="#9b806c" stroke-width="2" fill="none" />
+  <text font-size="25" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#6f4853" text-anchor="middle"><tspan x="400" y="29.5">Variational autoencoder</tspan></text>
+  <rect x="250.00000000000003" y="355" width="381.142" height="180" rx="18" ry="18" stroke="#8d7463" stroke-width="2" fill="#f3eee5" />
+  <polyline points="95,450 99.05,450" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="105,450 98.938,453.5 98.938,446.5" fill="#514b45" />
+  <polyline points="225,450 259.05,450" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="265,450 258.938,453.5 258.938,446.5" fill="#514b45" />
+  <polyline points="165,399 165,413.05" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="165,419 161.5,412.938 168.5,412.938" fill="#514b45" />
+  <polyline points="355,440 361.05,440" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="367,440 360.938,443.5 360.938,436.5" fill="#514b45" />
+  <polyline points="443,440 447.826,440" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="453.776,440 447.714,443.5 447.714,436.5" fill="#514b45" />
+  <polyline points="535.849,440 540.023,440" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="545.973,440 539.911,443.5 539.911,436.5" fill="#514b45" />
+  <polyline points="623,440 636.05,440" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="642,440 635.938,443.5 635.938,436.5" fill="#514b45" />
+  <polyline points="698.814,440 709.05,440" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="715,440 708.938,443.5 708.938,436.5" fill="#514b45" />
+  <polyline points="750,463 750,491.05" stroke="#514b45" stroke-width="2" fill="none" />
+  <polygon points="750,497 746.5,490.938 753.5,490.938" fill="#514b45" />
+  <polyline points="225,466 245,510 405,510 405,473.95" stroke="#68766d" stroke-width="2" fill="none" />
+  <polygon points="405,468 408.5,474.062 401.5,474.062" fill="#68766d" />
+  <polyline points="443,427 455,397 585,397 585,406.05" stroke="#68766d" stroke-width="2" fill="none" />
+  <polygon points="585,412 581.5,405.938 588.5,405.938" fill="#68766d" />
+  <text font-size="22" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#465561" text-anchor="middle"><tspan x="400" y="333">Decoder-only Transformer</tspan></text>
+  <text font-size="15" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#765d68" text-anchor="middle"><tspan x="445" y="377.5">Decoder block  × N</tspan></text>
+  <text font-size="11" font-family="Arial" font-weight="bold" font-style="italic" text-decoration="none" fill="#8b5138" text-anchor="middle"><tspan x="320" y="502.5">causal mask</tspan></text>
+  <text font-size="10" font-family="Arial" font-weight="normal" font-style="italic" text-decoration="none" fill="#68766d" text-anchor="middle"><tspan x="330" y="527">residual</tspan></text>
+  <text font-size="10" font-family="Arial" font-weight="normal" font-style="italic" text-decoration="none" fill="#68766d" text-anchor="middle"><tspan x="515" y="395">residual</tspan></text>
+  <rect x="15" y="424" width="80" height="52" rx="12" ry="12" stroke="#8f4a3b" stroke-width="2" fill="#d8a08f" />
+  <text font-size="13" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#4b2f29" text-anchor="middle"><tspan x="55" y="447.4">Input</tspan><tspan x="55" y="465.6">tokens</tspan></text>
+  <rect x="105" y="419" width="120" height="62" rx="13" ry="13" stroke="#526773" stroke-width="2" fill="#aebdc1" />
+  <text font-size="12" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#26343a" text-anchor="middle"><tspan x="165" y="447.6">Token + position</tspan><tspan x="165" y="464.4">embedding</tspan></text>
+  <ellipse cx="165" cy="380" rx="50" ry="19" stroke="#96713a" stroke-width="2" fill="#dfc58e" />
+  <text font-size="12" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#4c3b24" text-anchor="middle" dominant-baseline="central"><tspan x="165" y="380">Positions</tspan></text>
+  <rect x="265" y="408" width="90" height="64" rx="12" ry="12" stroke="#955438" stroke-width="2" fill="#d8a07e" />
+  <text font-size="9" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#4a3026" text-anchor="middle"><tspan x="310" y="419.3">Masked</tspan><tspan x="310" y="431.9">self-attention</tspan><tspan x="310" y="444.5"></tspan><tspan x="310" y="457.1"></tspan><tspan x="310" y="469.7"></tspan></text>
+  <rect x="367" y="412" width="76" height="56" rx="11" ry="11" stroke="#61705a" stroke-width="2" fill="#b4bea7" />
+  <text font-size="12" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#30382d" text-anchor="middle"><tspan x="405" y="437.6">Add &amp;</tspan><tspan x="405" y="454.4">Norm</tspan></text>
+  <polyline points="466,432 495,426" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="466,432 495,440" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="466,432 495,454" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="466,450 495,426" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="466,450 495,440" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="466,450 495,454" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,426 524,432" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,426 524,450" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,440 524,432" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,440 524,450" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,454 524,432" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="495,454 524,450" stroke="#8a7668" stroke-width="1" fill="none" />
+  <ellipse cx="466" cy="432" rx="4.5" ry="4.5" stroke="#536773" stroke-width="1.5" fill="#c4ced0" />
+  <ellipse cx="466" cy="450" rx="4.5" ry="4.5" stroke="#536773" stroke-width="1.5" fill="#c4ced0" />
+  <ellipse cx="495" cy="426" rx="4.5" ry="4.5" stroke="#735d69" stroke-width="1.5" fill="#c5b5bc" />
+  <ellipse cx="495" cy="440" rx="4.5" ry="4.5" stroke="#735d69" stroke-width="1.5" fill="#c5b5bc" />
+  <ellipse cx="495" cy="454" rx="4.5" ry="4.5" stroke="#735d69" stroke-width="1.5" fill="#c5b5bc" />
+  <ellipse cx="524" cy="432" rx="4.5" ry="4.5" stroke="#62705b" stroke-width="1.5" fill="#c5cdbb" />
+  <ellipse cx="524" cy="450" rx="4.5" ry="4.5" stroke="#62705b" stroke-width="1.5" fill="#c5cdbb" />
+  <text font-size="7" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#5c4851" text-anchor="middle"><tspan x="495" y="418.5">FC layers</tspan></text>
+  <rect x="547" y="412" width="76" height="56" rx="11" ry="11" stroke="#61705a" stroke-width="2" fill="#b4bea7" />
+  <text font-size="12" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#30382d" text-anchor="middle"><tspan x="585" y="437.6">Add &amp;</tspan><tspan x="585" y="454.4">Norm</tspan></text>
+  <polyline points="648,434 669,430" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="648,434 669,440" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="648,434 669,450" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="648,446 669,430" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="648,446 669,440" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="648,446 669,450" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,430 690,434" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,430 690,446" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,440 690,434" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,440 690,446" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,450 690,434" stroke="#8a7668" stroke-width="1" fill="none" />
+  <polyline points="669,450 690,446" stroke="#8a7668" stroke-width="1" fill="none" />
+  <ellipse cx="648" cy="434" rx="4" ry="4" stroke="#536773" stroke-width="1.2" fill="#c4ced0" />
+  <ellipse cx="648" cy="446" rx="4" ry="4" stroke="#536773" stroke-width="1.2" fill="#c4ced0" />
+  <ellipse cx="669" cy="430" rx="4" ry="4" stroke="#735d69" stroke-width="1.2" fill="#c5b5bc" />
+  <ellipse cx="669" cy="440" rx="4" ry="4" stroke="#735d69" stroke-width="1.2" fill="#c5b5bc" />
+  <ellipse cx="669" cy="450" rx="4" ry="4" stroke="#735d69" stroke-width="1.2" fill="#c5b5bc" />
+  <ellipse cx="690" cy="434" rx="4" ry="4" stroke="#62705b" stroke-width="1.2" fill="#c5cdbb" />
+  <ellipse cx="690" cy="446" rx="4" ry="4" stroke="#62705b" stroke-width="1.2" fill="#c5cdbb" />
+  <text font-size="6" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#4b5d60" text-anchor="middle"><tspan x="669" y="423">FC layers</tspan></text>
+  <rect x="715" y="417" width="70" height="46" rx="10" ry="10" stroke="#99743d" stroke-width="2" fill="#d9bd7d" />
+  <text font-size="11" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#493a25" text-anchor="middle"><tspan x="750" y="445.5">Softmax</tspan></text>
+  <ellipse cx="750" cy="520" rx="39" ry="23" stroke="#8f4a3b" stroke-width="2" fill="#d8a08f" />
+  <text font-size="11" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#4b2f29" text-anchor="middle" dominant-baseline="central"><tspan x="750" y="520">Next token</tspan></text>
+  <rect x="271" y="445" width="22" height="22" rx="5" ry="5" stroke="#966844" stroke-width="1.5" fill="#dfc3a4" />
+  <text font-size="10" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#503824" text-anchor="middle"><tspan x="282" y="461">Q</tspan></text>
+  <rect x="299" y="445" width="22" height="22" rx="5" ry="5" stroke="#566b78" stroke-width="1.5" fill="#c3ced2" />
+  <text font-size="10" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#30414b" text-anchor="middle"><tspan x="310" y="461">K</tspan></text>
+  <rect x="327" y="445" width="22" height="22" rx="5" ry="5" stroke="#61705a" stroke-width="1.5" fill="#c5cdbb" />
+  <text font-size="10" font-family="Arial" font-weight="bold" font-style="normal" text-decoration="none" fill="#34402f" text-anchor="middle"><tspan x="338" y="461">V</tspan></text>
+</svg>

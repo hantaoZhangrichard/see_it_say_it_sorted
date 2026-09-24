@@ -5,19 +5,65 @@ Transform sketches into clean SVG diagrams using AI in minutes.
 Read our paper: [See it. Say it. Sorted: Agentic System for Compositional Diagram Generation](https://arxiv.org/abs/2508.15222)
 
 
-# Symbology
+---
+
+## From Our Research to Symbology AI Canvas
+
 <p align="center">
-  <img src="imgs/logo_final.png" width="300"><br>
-  <strong>A web-based collaborative symbolic SVG editor with AI assistance.</strong>
+  <a href="https://symbology.onrender.com/">
+    <img src="imgs/symbology-cover.png" width="100%" alt="Symbology AI Canvas — Think together. Make freely.">
+  </a>
 </p>
 
-Unleash a new form of creativity where code meets canvas. Symbology transforms your prompts into editable, symbolic structures, allowing you to craft everything from intricate flowcharts to bold, blocky abstract art without touching a bezier curve. Because every diagram is built on a programmable language of shapes, you aren't just getting a static image—you’re getting a living design. Collaborate with AI to iterate instantly, dive into the code to fine-tune the details, and download clean SVGs that fit perfectly into your projects. It’s design, decoded.
+<p align="center">
+  <strong>Think together. Make freely.</strong><br>
+  We built Symbology AI Canvas based on the research introduced in this paper.
+</p>
 
-![Symbology Workflow](imgs/symbology_workflow.png)
+The agentic approach to compositional diagram generation developed in
+*See it. Say it. Sorted* became the foundation for **Symbology AI Canvas**: an
+AI-native workspace for creating editable diagrams, scientific figures,
+flowcharts, and SVG illustrations. It brings the ideas from our research into
+a practical canvas where people and AI can shape, inspect, and refine every
+part of a visual together.
 
+<p align="center">
+  <a href="https://symbology.onrender.com/"><strong>Explore Symbology AI Canvas →</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://symbology.onrender.com/login.html">Open the web app</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/hantaoZhangrichard/symbology-downloads/releases/download/v0.1.5/Symbology-0.1.5-arm64.dmg">Download for macOS</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/hantaoZhangrichard/symbology-downloads/releases/download/v0.1.5/Symbology-Setup-0.1.5-x64.exe">Download for Windows</a>
+</p>
 
-Example Usage: 
-![Example Usage](imgs/winterbreak.png)
+Describe what you want, refine every shape directly on the canvas, and export
+the result as SVG, PDF, PNG, or PowerPoint. Visit the
+[Symbology website](https://symbology.onrender.com/) to see what the research
+has become and start creating.
+
+### Made with Symbology
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="imgs/symbology-examples/vae-transformer.svg" alt="VAE and Transformer architecture diagram made with Symbology"><br>
+      <sub><strong>VAE + Transformer</strong></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="imgs/symbology-examples/rnn.svg" alt="Reservoir computing RNN diagram made with Symbology"><br>
+      <sub><strong>Reservoir computing RNN</strong></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="imgs/symbology-examples/machine-learning-pipeline.svg" alt="Machine-learning pipeline diagram made with Symbology"><br>
+      <sub><strong>Machine-learning pipeline</strong></sub>
+    </td>
+  </tr>
+</table>
+
+Explore the [reusable Symbology asset library](https://github.com/hantaoZhangrichard/symbology-assets).
+
+---
 
 
 
@@ -126,7 +172,27 @@ Find your results in `agent_svg/[task_id]/`:
 
 ### Acknowledgement
 
-**Special thanks to Jiaruo Liu, Xiaowen Yin, Yayan Jiang, and Yidan Mei for their valuable contributions to the Flowchart Editor.**
+**Special thanks to Jiaruo Liu, Xiaowen Yin, Yayan Jiang, and Yidan Mei for their valuable contributions to the first version of Symbology.**
 
 
 ### License
+
+Copyright 2025–2026 Hantao Zhang and contributors.
+
+Licensed under the [Apache License 2.0](LICENSE).
+
+### Citation
+
+If you use this work, please cite our paper:
+
+```bibtex
+@misc{zhang2025itsayitsorted,
+  title={See it. Say it. Sorted: Agentic System for Compositional Diagram Generation},
+  author={Hantao Zhang and Jingyang Liu and Ed Li},
+  year={2025},
+  eprint={2508.15222},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2508.15222},
+}
+```
